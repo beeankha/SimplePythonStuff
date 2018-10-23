@@ -1,21 +1,23 @@
 # Simple Stuff
 
-Misc. simple Python 3 projects for teaching myself basic concepts.
+Misc. simple Python 3 projects for teaching myself basic concepts like functions, if statements, loops, etc.
 
-Dragon:
+<h3>Danger Rooms:</h3>
+Text-based game involving dangerous rooms and an attempt to escape them.
+Based on Chapter 36 of "Learn Python3 the Hard Way".
+
+<h3>Dragon:</h3>
 Text-based game involving a dragon and two caves.
 
-DrawCircle:
+<h3>DrawCircle:</h3>
 Draws a circle.
 
-Guess the Number:
+<h3>Guess the Number:</h3>
 Makes you guess a number.
 
-Jokes:
+<h3>Jokes:</h3>
 Tells you a few jokes.
 
-TempConverter:
+<h3>TempConverter:</h3>
 A very simple temperature converter written in Python.
 (written by me, not using a tutorial)
-
-
