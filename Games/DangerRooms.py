@@ -15,10 +15,11 @@ def start():
     if choice == "left":
         feast_room()
     elif choice == "right":
-        cthulhu_room()
+        pit_room()
     else:
-        escape("You don't know how to type, so you stumble around the room until you starve.")
-
+        print("You apparently don't know how to type, so you stumble around the room until you starve.")
+        time.sleep(1)
+        play_again()
 
 def feast_room():
     print("There is an enormous table in this room.")
@@ -28,38 +29,41 @@ def feast_room():
     print("Do you eat any of the food?.")
     time.sleep(1)
     print("Type in 'yes' or 'no':")
-    feast_eaten = False
+    choice = input("> ")
 
-    while True:
-        choice = input("> ")
+    if choice == "yes":
+        print("You start to froth at the mouth.")
+        time.sleep(1)
+        print("You totes die.")
+        time.sleep(1)
+        play_again()
+    if choice == "no":
+        feast_door()
+    else:
+        print("I have no idea what that means.")
+        time.sleep(1)
+        feast_room()
 
-        if choice == "yes":
-            print("You start to froth at the mouth.")
-            time.sleep(1)
-            print("You totes die.")
-            time.sleep(1)
-            exit(0)
-        elif choice == "no" and not feast_eaten:
-            print("You walk past the table and see a door.")
-            time.sleep(1)
-            print("Do you open it?")
-            time.sleep(1)
-            print("Type in 'yes' or 'no':")
-            choice = input("> ")
+def feast_door():
+    print("You walk past the table and see a door.")
+    time.sleep(1)
+    print("Do you open it?")
+    time.sleep(1)
+    print("Type in 'yes' or 'no':")
 
-            if choice == "yes":
-                gold_room()
-            if choice == "no":
-                print("You wander around aimlessly...")
-                time.sleep(1)
-                print("...and eventually starve to death.")
-                time.sleep(1)
-                exit(0)
-
-        elif choice == "yes" and feast_eaten:
-            gold_room()
-        else:
-            print("I have no idea what that means.")
+    choice = input("> ")
+    if choice == "yes":
+        gold_room()
+    if choice == "no":
+        print("You wander around aimlessly...")
+        time.sleep(1)
+        print("...and eventually starve to death.")
+        time.sleep(1)
+        play_again()
+    else:
+        print("Sorry, that input is invalid.")
+        time.sleep(1)
+        feast_door()
 
 
 def gold_room():
@@ -71,35 +75,84 @@ def gold_room():
     if "0" in choice or "1" in choice:
         how_much = int(choice)
     else:
-        escape("Man, learn to type a number.")
+        print("You need to type a number!")
+        time.sleep(1)
+        gold_room()
 
     if how_much < 50:
         print("Nice, you're not greedy, you win!")
         exit(0)
     else:
-        escape("You greedy bastard!")
+        escape("Wow, you're super greedy!")
 
-
-def cthulhu_room():
-    print("Here you see the great evil Cthulhu.")
+def pit_room():
+    print("There is an enormous pit in the middle of the room.")
     time.sleep(1)
-    print("He, it, whatever, stares at you and you go insane.")
+    print("It looks like you might be able to jump over it...")
     time.sleep(1)
-    print("Do you flee for your life or eat your head?")
+    print("...or you can shimmy around the edge.")
+    time.sleep(1)
+    print("Do you jump or walk carefully around the edge?")
+    time.sleep(1)
+    print("Type in 'leap' or 'shimmy':")
 
     choice = input("> ")
 
-    if "flee" in choice:
-        start()
-    elif "head" in choice:
-        escape("Well that was tasty!")
+    if choice == "leap":
+        print("You jump, and are over the pit...")
+        time.sleep(1)
+        print("...but it turns out that you haven't trained for this so you fall and die.")
+        time.sleep(1)
+        exit(0)
+    elif "shimmy" in choice:
+        cube_room()
     else:
-        cthulhu_room()
+        print("I have no idea what that means.")
+        time.sleep(1)
+        pit_room()
 
+def cube_room():
+    print("You find an opening in the wall and go through it...")
+    time.sleep(1)
+    print("...and find yourself in a room with a glowing cube on top of a pedestal.")
+    time.sleep(1)
+    print("Do you touch the cube?")
+    time.sleep(1)
+    print("Type in 'yes' or 'no':")
+    choice = input("> ")
+
+    if choice == "yes":
+        print("The glow of the cube engulfs you.")
+        time.sleep(1)
+        print("Then you start vibrating until all of your atoms come apart...")
+        time.sleep(1)
+        print("...and you die.")
+        time.sleep(1)
+        exit(0)
+    elif choice == "no":
+        escape("Good choice!")
+    else:
+        print("Sorry, that wasn't a valid choice.")
+        time.sleep(1)
+        cube_room()
 
 def escape(why):
     print(why, "You find an exit and escape the trap!")
-    exit(0)
+    play_again()
 
+def play_again():
+    print("Play again? Type 'yes' or 'no':")
+
+    play_choice = input("> ")
+    if play_choice == "yes":
+        start()
+    if play_choice == "no":
+        print("Bye!")
+        time.sleep(1)
+        exit(0)
+    else:
+        print("Sorry, I didn't understand that.")
+        time.sleep(1)
+        play_again()
 
 start()
