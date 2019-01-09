@@ -5,5 +5,8 @@
 **DrawCircle**
 Draws a circle.
 
+**PrimeNumberGenerator**
+Generates prime numbers up to a specified range.
+
 **TempConverter**
 A very simple temperature converter script (didn't use a tutorial!).
