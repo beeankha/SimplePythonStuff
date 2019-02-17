@@ -7,3 +7,6 @@ Draws a circle.
 
 **TempConverter**
 A very simple temperature converter script (didn't use a tutorial!).
+
+**PrimeNumberGenerator**
+Find all prime numbers within a specified range.
