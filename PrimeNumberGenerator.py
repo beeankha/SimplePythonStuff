@@ -8,7 +8,8 @@ def isprime(n):
         return True
 
 def list_primes():
-    for n in range(1500): # change the range number to get more or fewer primes!
+    # change the range number to get more or fewer primes!
+    for n in range(1500):
         if isprime(n):
             print(n, end=' ', flush=True)
     print()
