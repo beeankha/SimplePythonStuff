@@ -1,9 +1,13 @@
 ## For Chapter 45 in Python3 the Hard Way book
 
-from sys import exit
-from random import randint
-from textwrap import dedent
+import random
 import time
+
+from random import randint
+from sys import exit
+from textwrap import dedent
+from urllib.request import urlopen
+
 
 # Player is an adventurer who forgot their phone in the last dungeon.
 # This is their quest to get the phone back.
@@ -36,82 +40,346 @@ class Engine(object):
 class Death(Scene):
 
     sarcastic_exit = [
-        "Oh wow.  You're dead."
-        "Well, that didn't last long.  You are dead."
-        "You totes die!"
-        "Epic fail."
-        "[insert yo momma joke]"
+        "Oh wow.  You're dead. \n",
+        "Well, that didn't last long.  You are dead. \n",
+        "You totes die! \n",
+        "EPIC FAIL. \n",
+        "[insert yo momma joke].  Aaaaaand you're dead. \n"
     ]
 
     def enter(self):
         print(Death.sarcastic_exit[randint(0, len(self.sarcastic_exit)-1)])
 
-# Where you get the premise of what you're doing etc.
+        time.sleep(2)
+        print("Do you want to play again? (yes or no)")
+        playAgain = input("> ")
+
+        if playAgain == 'yes' or playAgain == 'y':
+            return 'intro'
+        else:
+            exit(1)
+
+
 class Intro(Scene):
 
     def enter(self):
         print(dedent("""
-        skldjflsjfsl
-        sldkfjdslkfjsdlfj
-        ksdjhfkjsdhfksd
-        """))
+            You are the type of person who goes out and about questing in various
+            caves and dungeons and whatnot.  One day, while questing in such a manner,
+            you leave a dungeon only to realize that you've forgotten your phone inside.
+            """))
 
-    action = input("> ")
+        time.sleep(1)
+# AFTER GAME IS FINALIZED, TURN THE ABOVE INTO 6
 
-    # if-then loops here for outcomes
+        print("Drat!")
+
+        time.sleep(1)
+
+        print(dedent("""
+            That thing isn't cheap, so you turn around and go straight back in the
+            last cave you came out of.  You have a really bad memory, so you are a bit
+            surprised to see that there are three doors ahead of you, each in a different
+            color.  One is blue, one is yellow, and another is purple.  Which do you choose?
+
+            Type in your choice, 'yellow', 'blue', or 'purple'.
+            """))
+
+        door_choice = input("> ")
+
+        if door_choice == "yellow":
+            print(dedent("""
+                You open the yellow door and step into the room like you own the
+                place. Problem is, you shoulda seen that instead of a floor there
+                is a bottomless pit, which you promptly plunge into. \n \n
+                """))
+            return 'death'
+
+        elif door_choice == "blue":
+            print(dedent("""
+                Blue is nice, blue is calming!  You open the door and step into
+                the room. You walk a few steps forward, only to hear the door slam
+                behind you. \n \n
+                """))
+
+            time.sleep(4)
+
+            print("You're trapped! \n \n")
+
+            time.sleep(2)
+
+            print("Like, seriously, you're trapped here. \n \n")
+
+            time.sleep(1.5)
+
+            print("Forever. \n \n")
+
+            time.sleep(1.5)
+
+            print("There's no getting out. \n \n")
+
+            time.sleep(1.5)
+
+            return 'death'
+
+        elif door_choice == "purple":
+            print(dedent("""
+                Your memory may be bad, but you are a smart one.  You chose the
+                non-primary color door!  High fives all around!
+
+                You open the door and enter a cold, large, musty hall with a long table
+                in it. \n \n
+                """))
+            return 'test_hall'
+
+        else:
+            print("DOES NOT COMPUTE!")
+            return 'intro'
 
 
-# You'll have to get past this area in order to
-# get into the area with the dragon.
+# # You'll have to get past this area in order to
+# # get into the area with the dragon.
 class TestHall(Scene):
 
     def enter(self):
         print(dedent("""
-        skldjflsjfsl
-        sldkfjdslkfjsdlfj
-        ksdjhfkjsdhfksd
-        """))
+            Around the table are many chairs. Seated in one of them is a what
+            appears to be a goblin. It starts talking to you in a really posh
+            British accent and asks you to pass the 'Flerzlum'. What is he talking
+            about? You try to follow his gaze and see three things he could be
+            asking for. One is a plate of rocks. Another is a bowl of soup with
+            eyeballs floating in it. There is also a silver pitcher. Which do
+            you hand him?
+            """))
+
+        time.sleep(1)
+# AFTER GAME IS FINALIZED, TURN THE ABOVE INTO 6
+
+        print("Pass the 'rocks', 'soup' or 'pitcher'?")
+        print("You can also 'pass' and not give him anything. \n \n")
+
+        goblin_pass = input("> ")
+
+        if goblin_pass == "pass":
+            print(dedent("""
+                Yikes, the goblin REALLY doesn't like that! He takes his
+                sword out and stabs you with it. \n
+                """))
+            return 'death'
+
+        if goblin_pass == "rocks":
+            print(dedent("""
+                The goblin looks at you like you are an insane person, takes out
+                his sword, and stabs you with it. \n
+                """))
+            return 'death'
+
+        if goblin_pass == "pitcher":
+            print(dedent('''
+                The goblin angrily grabs the pitcher from you and yells "This is
+                not flerzlum, you big stupid idiot!" and throws it really hard
+                at your head. The last thing you hear is your skull cracking. \n
+                '''))
+            return 'death'
+
+        elif goblin_pass == "soup":
+            print(dedent('''
+                The goblin gratefully accepts the bowl of soup and slurps it all
+                down. He says "Thank you for your assistance! In return, I will
+                allow you to pass without kill you! At the end of this hall is
+                another door. Behind it, you will find a dragon. Be cautious,
+                for this dragon has a bad temper!" \n
+                '''))
+            return 'sad_dragon'
+
+        else:
+            print("DOES NOT COMPUTE!")
+            return 'test_hall'
+
 
 # The dragon is sad.
 class SadDragon(Scene):
 
     def enter(self):
         print(dedent("""
-        skldjflsjfsl
-        sldkfjdslkfjsdlfj
-        ksdjhfkjsdhfksd
-        """))
+            You walk through the door at the end of the hall as instructed and
+            enter what looks like a cave lined with gold. There is treasure filling
+            the entire place all the way up to the ceiling, which is so high the
+            torchlight all around can't reach it.
+            """))
+
+        time.sleep(1.5)
+
+        print("In the midst of the treasure is a dragon.  It's big.  And it's crying.")
+
+        time.sleep(1.5)
+
+        print(dedent('''
+            You go up to the dragon and ask what's wrong.  The dragon answers through
+            tears, "I'm SO sad! Nobody comes to visit me here! Even when they DO visit,
+            they all leave in such a hurry! Look, someone left their phone here!"
+            You look at where the dragon is pointing and indeed see your phone!
+            Politely, you ask if you can have the phone back.  In response, the dragon
+            says, "Wait. Did YOU leave it here? Hmph. How rude of you to not stay longer
+            the last time you were here! How are you gonna make up for it?"
+            '''))
+
+        time.sleep(1.5)
+
+        print(dedent('''
+            Well, this is quite a pickle. You can maybe sing to it, go up and give
+            it a hug, or cross your arms and say "Nothin'!".
+            '''))
+
+        print("Choose 'sing', 'hug' or 'nothing'.")
+
+        dragon_choice = input("> ")
+
+        if dragon_choice == "sing":
+            print(dedent("""
+                [sing death text here]
+                """))
+            return 'death'
+
+        if dragon_choice == "hug":
+            print(dedent(f"""
+                [mad dragon text here]
+                """))
+            return 'mad_dragon'
+
+        if dragon_choice == "nothing":
+            print(dedent("""
+                [defiant death text]
+                """))
+            return 'death'
+
+        else:
+            print("DOES NOT COMPUTE!")
+            return 'sad_dragon'
+
 
 # And now the dragon is MAD!
 class MadDragon(Scene):
 
     def enter(self):
         print(dedent("""
-        skldjflsjfsl
-        sldkfjdslkfjsdlfj
-        ksdjhfkjsdhfksd
-        """))
+            [secret code needed oh yeah, dragon gives clue]
+            """))
+
+        code = f"{randint(1,9)}{randint(1,9)}{randint(1,9)}"
+        cheat = "4242"
+        guess = input("[phone password?]> ")
+        guesses = 0
+
+        while guess != code and guess != cheat and guesses < 9:
+            print("Try again!")
+            guesses += 1
+            guess = input("[phone password?]> ")
+
+        if guess == cheat:
+            print(dedent("""
+                [right answer text]
+                """))
+            return 'phone_found'
+
+        elif guess == code:
+            print(dedent("""
+                Holy crap!  You got it!
+                """))
+            return 'phone_found'
+
+        else:
+            print(dedent("""
+                You have used up all of your unlock tries and your phone is locked
+                up for the next five minutes, aside from emergency calls.  Dialing
+                911 will do you no good, however, as the dragon eats you. \n
+                """))
+            return 'death'
 
 # This one is where you've found your phone and
 # the DM starts yelling at you using random words.
 class PhoneFound(Scene):
 
     def enter(self):
-        print(dedent("""
-        What in the %%% are you %%%???  Do I always
-        have to %%% in your %%% for you to %%% that
-        this is a CRAFT, and it takes %%%, and %%%, and
-        time, you ungrateful %%%!!!!!!
-        """))
+
+        # condense the below part!!
+        lines = open("words.txt").readlines()
+        line = random.choice(lines)
+        words = line.split()
+        madword = random.choice(words)
+
+        lines = open("words.txt").readlines()
+        line = random.choice(lines)
+        words = line.split()
+        madword2 = random.choice(words)
+
+        lines = open("words.txt").readlines()
+        line = random.choice(lines)
+        words = line.split()
+        madword3 = random.choice(words)
+
+        lines = open("words.txt").readlines()
+        line = random.choice(lines)
+        words = line.split()
+        madword4 = random.choice(words)
+
+        lines = open("words.txt").readlines()
+        line = random.choice(lines)
+        words = line.split()
+        madword5 = random.choice(words)
+
+        lines = open("words.txt").readlines()
+        line = random.choice(lines)
+        words = line.split()
+        madword6 = random.choice(words)
+
+        lines = open("words.txt").readlines()
+        line = random.choice(lines)
+        words = line.split()
+        madword7 = random.choice(words)
+
+        lines = open("words.txt").readlines()
+        line = random.choice(lines)
+        words = line.split()
+        madword8 = random.choice(words)
+
+        print(dedent(f'''\
+            Woah, your DM is mad. He starts yelling at you in words that make
+            no sense:
+            "What in the {madword} are you {madword2}???  Do I always
+            have to {madword3} in your {madword4} for you to {madword5} that
+            this is a CRAFT, and it takes {madword6}, and {madword7}, and
+            time, you ungrateful {madword8}!!!!!!"
+            '''))
+
+        return 'finished'
+
 
 class Finished(Scene):
 
     def enter(self):
         print(dedent("""
-        Your DM is frothing at the mouth now, but at
-        least you've found your phone!  Congrats!
-        """))
-        return 'finished'
+            Your DM is frothing at the mouth now, but at
+            least you've found your phone!  Congrats!
+            """))
+
+        time.sleep(2)
+
+
+# Troubleshoot this part!!
+        print("Do you want to play again? (yes or no)")
+        play_again = input("> ")
+
+        another_round1 = 'yes'
+        another_round2 = 'y'
+
+        if play_again == another_round1:
+            return 'intro'
+        elif play_again == another_round2:
+            return 'intro'
+        else:
+            exit(1)
+
 
 class Map(object):
 
