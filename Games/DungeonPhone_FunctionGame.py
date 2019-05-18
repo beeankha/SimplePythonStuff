@@ -6,7 +6,6 @@ import time
 from random import randint
 from sys import exit
 from textwrap import dedent
-from urllib.request import urlopen
 
 
 # Player is an adventurer who forgot their phone in the last dungeon.
@@ -296,17 +295,16 @@ class MadDragon(Scene):
                 """))
             return 'death'
 
+
 # This one is where you've found your phone and
 # the DM starts yelling at you using random words.
 class PhoneFound(Scene):
 
     def enter(self):
 
-        # condense the below part!!
+        # condense the below part!! Maybe try random.sample
         lines = open("words.txt").readlines()
-        line = random.choice(lines)
-        words = line.split()
-        madword = random.choice(words)
+        madword = random.choice(lines)
 
         lines = open("words.txt").readlines()
         line = random.choice(lines)
