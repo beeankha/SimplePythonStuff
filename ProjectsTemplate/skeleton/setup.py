@@ -16,5 +16,7 @@ config = {
         'name': 'projectname'
 }
 
-setup(**config)
-
+setup(...,
+      scripts=['bin/emptyfile']
+      )
+# Put in the correct script name above!

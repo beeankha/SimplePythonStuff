@@ -300,54 +300,26 @@ class MadDragon(Scene):
 # the DM starts yelling at you using random words.
 class PhoneFound(Scene):
 
+    with open("words.txt") as f:
+        lines = [line.strip() for line in f]
+    # This makes lines a class attribute in PhoneFound!!
+    # .strip() method will remove extraneous stuff like whitespace etc.
+
+
     def enter(self):
+        # sample() method included in random library
+        # https://docs.python.org/3/library/random.html#random.sample
 
         # condense the below part!! Maybe try random.sample
-        lines = open("words.txt").readlines()
-        madword = random.choice(lines)
+        madwords = random.sample(self.lines, 8)
 
-        lines = open("words.txt").readlines()
-        line = random.choice(lines)
-        words = line.split()
-        madword2 = random.choice(words)
-
-        lines = open("words.txt").readlines()
-        line = random.choice(lines)
-        words = line.split()
-        madword3 = random.choice(words)
-
-        lines = open("words.txt").readlines()
-        line = random.choice(lines)
-        words = line.split()
-        madword4 = random.choice(words)
-
-        lines = open("words.txt").readlines()
-        line = random.choice(lines)
-        words = line.split()
-        madword5 = random.choice(words)
-
-        lines = open("words.txt").readlines()
-        line = random.choice(lines)
-        words = line.split()
-        madword6 = random.choice(words)
-
-        lines = open("words.txt").readlines()
-        line = random.choice(lines)
-        words = line.split()
-        madword7 = random.choice(words)
-
-        lines = open("words.txt").readlines()
-        line = random.choice(lines)
-        words = line.split()
-        madword8 = random.choice(words)
-
-        print(dedent(f'''\
+        print(dedent(f'''
             Woah, your DM is mad. He starts yelling at you in words that make
             no sense:
-            "What in the {madword} are you {madword2}???  Do I always
-            have to {madword3} in your {madword4} for you to {madword5} that
-            this is a CRAFT, and it takes {madword6}, and {madword7}, and
-            time, you ungrateful {madword8}!!!!!!"
+            "What in the {madwords[0]} are you {madwords[1]}???  Do I always
+            have to {madwords[2]} in your {madwords[3]} for you to {madwords[4]} that
+            this is a CRAFT, and it takes {madwords[5]}, and {madwords[6]}, and
+            time, you ungrateful {madwords[7]}!!!!!!"
             '''))
 
         return 'finished'
