@@ -1,5 +1,7 @@
 This is a simple Pygame-based alien shooter game that I did for Python practice.  It's from the excellent [Python Crash Course](https://nostarch.com/pythoncrashcourse2e/) book.
 
+Read more about Pygame here: https://www.pygame.org/wiki/about
+
 **Requirements:**
 - Python 3
 - Pygame
