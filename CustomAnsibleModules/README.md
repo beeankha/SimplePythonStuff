@@ -1,17 +1,17 @@
 ## Custom Ansible Modules
 
-These modules are for me to practice writing modules for Ansible.
+This repo exists so I can practice writing modules for Ansible.
 
 ### Module Descriptions
 
 #### `sum_module.py`
 
-This module simply adds two numbers together.  The defaults are `0` and `1`.
+Adds two numbers together.  The defaults are `0` and `1`.
 
 
 #### `dice_module.py`
 
-This module provides probably the worst way ever to roll dice. 😁
+Probably the worst way ever to roll dice. 😁
 
 ### How to Use
 
