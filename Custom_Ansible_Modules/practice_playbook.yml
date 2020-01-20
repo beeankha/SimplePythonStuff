@@ -1,0 +1,30 @@
+---
+- name: My playbook
+  hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+    - name: "Roll a d12"
+      dice_module:
+        roll_d12: True
+      register: dice_results
+      # the above outputs the module register into a variable, then you can
+      # print out that info via debug (below)
+    - debug:
+        var: dice_results
+
+    - name: "Roll a d20"
+      dice_module:
+        roll_d20: True
+      register: dice_results
+    - debug:
+        var: dice_results
+
+    - name: "Run addition module"
+      sum_module:
+        number_one: 3
+        number_two: 5
+      register: sum_results
+    - debug:
+        var: sum_results
