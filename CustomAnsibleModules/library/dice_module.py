@@ -36,36 +36,13 @@ options:
       required: False
       type: int
       default: 1
-    roll_d4:
-      description:
-        - The command to roll a d4 die.
-      required: False
-      type: bool
-      default: False
-    roll_d6:
-      description:
-        - The command to roll a d6 die.
-      required: False
-      type: bool
-      default: False
-    roll_d12:
-      description:
-        - The command to roll a d12 die.
-      required: False
-      type: bool
-      default: False
-    roll_d20:
-      description:
-        - The command to roll a d20 die.
-      required: False
-      type: bool
-      default: False
 '''
 
 EXAMPLES = '''
 - name: "Roll some dice"
   dice_module:
-    roll_d20: True
+    dice_side_number: 12
+    number_of_rolls: 5
   register: roll_result
   # the above outputs the module register into a variable, then you can
   # print out that info via debug (below)
