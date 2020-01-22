@@ -24,6 +24,18 @@ description:
     - A way to roll digital dice via Ansible playbook. Currently you can only
     roll one at a time.
 options:
+    dice_side_number:
+      description:
+        - Customize the number of sides for the die you roll.
+      required: False
+      type: int
+      default: 20
+    number_of_rolls:
+      description:
+        - Choose how many times you want to roll the custom die.
+      required: False
+      type: int
+      default: 1
     roll_d4:
       description:
         - The command to roll a d4 die.
@@ -62,48 +74,32 @@ EXAMPLES = '''
 '''
 
 import random
+import json
 
 from ansible.module_utils.basic import AnsibleModule
 
-def main():
 
+def custom_dice_roll(dice_side_number, number_of_rolls):
+    dice_roll_results = []
+    for _ in range(number_of_rolls):
+        dice_roll_results.append(random.randint(1,int(dice_side_number)))
+    return dice_roll_results
+
+def main():
     argument_spec = dict(
-        roll_d4=dict(required=False, default=False, type='bool'),
-        roll_d6=dict(required=False, default=False, type='bool'),
-        roll_d12=dict(required=False, default=False, type='bool'),
-        roll_d20=dict(required=False, default=False, type='bool'),
+        dice_side_number=dict(required=False, default=20, type='int'),
+        number_of_rolls=dict(required=False, default=1, type='int'),
     )
 
     module = AnsibleModule(argument_spec=argument_spec, supports_check_mode=True)
 
-    roll_d4 = module.params.get('roll_d4')
-    roll_d6 = module.params.get('roll_d6')
-    roll_d12 = module.params.get('roll_d12')
-    roll_d20 = module.params.get('roll_d20')
+    dice_side_number = module.params.get('dice_side_number')
+    number_of_rolls = module.params.get('number_of_rolls')
 
-    if roll_d4:
-        try:
-            json_output = {'roll_d4': (random.randint(1,4))}
-        except ValueError:
-            module.fail_json(msg="This module parameter takes a boolean!")
-
-    elif roll_d6:
-        try:
-            json_output = {'roll_d6': (random.randint(1,6))}
-        except ValueError:
-            module.fail_json(msg="This module parameter takes a boolean!")
-
-    elif roll_d12:
-        try:
-            json_output = {'roll_d12': (random.randint(1,12))}
-        except ValueError:
-            module.fail_json(msg="This module parameter takes a boolean!")
-
-    elif roll_d20:
-        try:
-            json_output = {'roll_d20': (random.randint(1,20))}
-        except ValueError:
-            module.fail_json(msg="This module parameter takes a boolean!")
+    try:
+        json_output = {'custom_roll_result': custom_dice_roll(dice_side_number, number_of_rolls)}
+    except ValueError:
+        module.fail_json(msg="This module parameter takes an integer!")
 
     module.exit_json(**json_output)
 
