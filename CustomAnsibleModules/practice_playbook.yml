@@ -5,18 +5,16 @@
   gather_facts: False
 
   tasks:
-    - name: "Roll a d12"
+    - name: "Roll default die the default number of times!"
       dice_module:
-        roll_d12: True
       register: dice_results
-      # the above outputs the module register into a variable, then you can
-      # print out that info via debug (below)
     - debug:
         var: dice_results
 
-    - name: "Roll a d20"
+    - name: "Roll a custom d15 die 5 times"
       dice_module:
-        roll_d20: True
+        dice_side_number: 6
+        number_of_rolls: 20
       register: dice_results
     - debug:
         var: dice_results
