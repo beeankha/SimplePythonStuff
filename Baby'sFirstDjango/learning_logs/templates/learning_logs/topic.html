@@ -4,12 +4,20 @@
 
   <p style = "font-family:georgia,garamond,serif;font-size:24px;">Topic: {{ topic }}</p>
 
-  <p style = "font-family:georgia,garamond,serif;">Topics</p>Entries:</p>
+  <p style = "font-family:georgia,garamond,serif;">Entries:</p>
+
+  <p>
+    <a href="{% url 'learning_logs:new_entry' topic.id %}">Add new entry</a>
+  </p>
+
   <ul>
   {% for entry in entries %}
     <li>
       <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
       <p>{{ entry.text|linebreaks }}</p>
+      <p>
+        <a href="{% url 'learning_logs:edit_entry' entry.id %}">Edit entry</a>
+      </p>
     </li>
   {% empty %}
     <li>There are no entries for this topic yet.</li>

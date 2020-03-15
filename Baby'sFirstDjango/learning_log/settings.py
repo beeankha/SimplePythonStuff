@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     'learning_logs',
     # It’s important to place your own apps before the default apps in case you need
     # to override any behavior of the default apps with your own custom behavior.
-
+    'users',
+    
     # Default Django apps:
     'django.contrib.admin',
     'django.contrib.auth',
@@ -124,3 +125,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# My settings
+LOGIN_URL = 'users:login'
