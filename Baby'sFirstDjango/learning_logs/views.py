@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.http import Http404
+from django.core.exceptions import PermissionDenied
 
 from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
@@ -13,7 +13,7 @@ def index(request):
 
 def check_topic_owner(request, topic):
     if topic.owner != request.user:
-        raise Http404
+        raise PermissionDenied
 
 @login_required
 def topics(request):
