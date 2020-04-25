@@ -1,4 +1,4 @@
-{% load boostrap4 %}
+{% load bootstrap4 %}
 
 <!doctype html>
 <html lang="en">
@@ -9,7 +9,7 @@
   <title>Learning Log</title>
 
   {% bootstrap_css %}
-  {% boostrap_javascript jquery='full' %}
+  {% bootstrap_javascript jquery='full' %}
 
 </head>
 <body>
@@ -52,7 +52,10 @@
 
   <main role="main" class="container">
     <div class="pb-2 mb-2 border-bottom">
-      {% block page_header %}{% endblock content %}
+      {% block page_header %}{% endblock page_header %}
+    </div>
+    <div>
+      {% block content %}{% endblock content %}
     </div>
   </main>
 
