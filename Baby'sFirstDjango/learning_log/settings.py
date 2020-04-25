@@ -36,7 +36,10 @@ INSTALLED_APPS = [
     # It’s important to place your own apps before the default apps in case you need
     # to override any behavior of the default apps with your own custom behavior.
     'users',
-    
+
+    # Third party apps.
+    'bootstrap4',
+
     # Default Django apps:
     'django.contrib.admin',
     'django.contrib.auth',
@@ -128,3 +131,7 @@ STATIC_URL = '/static/'
 
 # My settings
 LOGIN_URL = 'users:login'
+
+# Heroku settings.
+import django_heroku
+django_heroku.settings(locals())
