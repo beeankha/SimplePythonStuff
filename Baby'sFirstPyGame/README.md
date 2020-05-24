@@ -1,3 +1,5 @@
+## Overview
+
 This is a simple Pygame-based alien shooter game that I did for Python practice.  It's from the excellent [Python Crash Course](https://nostarch.com/pythoncrashcourse2e/) book.
 
 Read more about Pygame here: https://www.pygame.org/wiki/about
@@ -19,7 +21,7 @@ $ python3 -m pip install --user pygame
 
 > If this command doesn’t work on macOS, try running the command again without the `--user` flag.
 
-**Running the Game:**
+## Running the Game
 
 To run this game, navigate to the directory with the `alien_invasion.py` file and run:
 
