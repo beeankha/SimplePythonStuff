@@ -18,3 +18,11 @@ $ python3 -m pip install --user pygame
 ```
 
 > If this command doesn’t work on macOS, try running the command again without the `--user` flag.
+
+**Running the Game:**
+
+To run this game, navigate to the directory with the `alien_invasion.py` file and run:
+
+```
+python alien_invasion.py
+```
