@@ -10,3 +10,6 @@ class Settings:
         # ^^ (1200, 800) is a tuple that defines dimensions of game window, in pixels.
         # The object we assigned to self.screen is called a "surface". Each element
         # the game is its own surface.
+
+        # Ship settings
+        self.ship_speed = 3.5
