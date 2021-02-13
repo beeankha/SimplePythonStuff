@@ -29,3 +29,16 @@ A plot that shows the start (green) and end (red) points:
 
 Random walk with 50,000 plotted points:
 ![Random Walk w/ 50,000 Plotted Points](randomwalk_50_000_points.png)
+
+* * *
+
+### Visualizing dice roll probabilities!
+
+Rolling one D6 1,000 times:
+![d6](d6_visualization.png)
+
+Rolling two D6s 1,000 times:
+![d6 d6](d6_d6_visualization.png)
+
+Going "Full Nerd Mode"! Rolling a D10 and D20 50,000 times:
+![d10 d20](d10_d20_visualization.png)

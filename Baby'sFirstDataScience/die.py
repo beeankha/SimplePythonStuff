@@ -5,6 +5,8 @@ class Die:
 
     def __init__(self, num_sides=6):
         """Assume a six-sided die."""
+        # If an argument is included, that value will set the number of sides
+        # on the die
         self.num_sides = num_sides
 
     def roll(self):
