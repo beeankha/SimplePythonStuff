@@ -42,6 +42,8 @@ while True:
     ax.get_xaxis().set_visible(False)
     ax.get_yaxis().set_visible(False)
 
+    ax.set_facecolor((0.5, 0.1, 0.2))
+
     plt.show()
 
     keep_running = input("Make another walk? (y/n): ")
