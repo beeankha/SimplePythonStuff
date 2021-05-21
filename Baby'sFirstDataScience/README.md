@@ -52,3 +52,9 @@ Going "Full Nerd Mode"! Rolling a D10 and D20 50,000 times:
 
 And now, with more ✨style✨:
 ![stylized repo chart](githubstarredreposstylized.png)
+
+* * *
+
+### Most-Commented Stories on Hacker News
+
+![most-commented stories on HN](hackernewsoutput.png)
