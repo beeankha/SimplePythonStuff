@@ -42,3 +42,19 @@ Rolling two D6s 1,000 times:
 
 Going "Full Nerd Mode"! Rolling a D10 and D20 50,000 times:
 ![d10 d20](d10_d20_visualization.png)
+
+* * *
+
+### Getting Data from the GitHub API!
+
+⭐️ Most-Starred Python Repositories as of 5/21/2021 ⭐️:
+![most-starred python repos](githubstars.png)
+
+And now, with more ✨style✨:
+![stylized repo chart](githubstarredreposstylized.png)
+
+* * *
+
+### Most-Commented Stories on Hacker News
+
+![most-commented stories on HN](hackernewsoutput.png)
