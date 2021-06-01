@@ -3,37 +3,49 @@
 ## Misc. simple Python 3 projects for teaching myself basic concepts.
 
 
-**DrawCircle**
+### **DrawCircle**
 
 Draws a circle.
 
 
-**PrimeNumberGenerator**
+### **PrimeNumberGenerator**
 
 Generates prime numbers up to a specified range.
 
 
-**TempConverter**
+### **TempConverter**
 
 A very simple temperature converter script.
 
 
-**FizzBuzz**
+### **FizzBuzz**
 
 A much famous test.
 
 
-**Lunch Randomizer**
+### **Lunch Randomizer**
 
 Helps select where to go to lunch in downtown Durham, NC.
 
 
-**Magic 8 Ball**
+### **Magic 8 Ball**
 
 Ask a yes or no question and get an answer!
 
 
-**PrimeNumberGenerator**
+### **PrimeNumberGenerator**
 
 Find all prime numbers within a specified range.
 
+
+### **Image Changer**
+
+Run `image_changer.py` on any JPEG image to stylize it like so:
+
+_Before_
+![Original Photo](images/august_marshmallows.jpg)
+
+_After_
+![Altered Photo](images/cartoonized_august_marshmallows.jpg)
+
+> When the stylized image pops up, press any key to activate the `Save the image? [y]/[n]` prompt
