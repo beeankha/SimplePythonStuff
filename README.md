@@ -49,3 +49,5 @@ _After_
 ![Altered Photo](images/cartoonized_august_marshmallows.jpg)
 
 > When the stylized image pops up, press any key to activate the `Save the image? [y]/[n]` prompt
+
+Dependencies include [`cv2`](https://pypi.org/project/opencv-python/) and `numpy`. Based on the excellent tutorial found [here](https://dev.to/stokry/how-to-cartoonize-an-image-with-python-1e01)
