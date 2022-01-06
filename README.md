@@ -65,3 +65,25 @@ Start with numbers other than 10, and you’ll still inevitably end at 1... we t
 ```
 
 This script takes any whole number input over `0` and returns the number of steps it takes to get that number to `1`.
+
+
+
+### **Corridor Puzzle**
+
+Description from [101 Computing.net](https://www.101computing.net/the-school-lockers-puzzle/):
+
+```
+On the first day of school, the principal of Locker High school decides to conduct an experiment. The school has exactly
+100 students and 100 lockers all lined up alongside the main corridor of the school.
+
+- The principal asks the first student to walk down the main corridor of the school to close all the lockers.
+- The principal then asks the second student to walk down the main corridor and open every other locker.
+- The principal then asks the third student to walk down the main corridor and either open every third locker if it is closed, or close it if it is open.
+- The fourth student will then repeat the same process for every fourth locker.
+
+And so on, till the last of the 100 students repeats this process for every 100th locker, so in fact, just opening the
+100th locker if it's closed, or close it if it is already open.
+At the end of this experiment the principal decides to count the number of lockers which are closed.
+```
+
+The corresponding Python file uses True/False booleans to figure out which lockers are closed and which are open.
