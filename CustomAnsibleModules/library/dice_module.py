@@ -17,9 +17,9 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: dice_module
-author: "Bianca Henderson (@bizonka)"
+author: "Bianca Henderson (@beeankha)"
 version_added: "2.9"
-short_description: The worst way to roll some dice!
+short_description: The silliest way to roll some dice!
 description:
     - A way to roll digital dice via Ansible playbook. Currently you can only
     roll one at a time.
