@@ -21,11 +21,11 @@ Gather data on the top `N` number of stories on [Hacker News](https://news.ycomb
 
 Select the number of top stories via the `number_of_entries` parameter. Optional outputs include `story_id`, `author`, and `comments` (the number of comments the article has). Output is sorted by upvotes, with most upvoted at the top.
 
-[Based on this Python script](Baby'sFirstDataScience/hn_submissions.py)
+[Based on this Python script](https://github.com/beeankha/SimplePythonStuff/blob/main/Baby'sFirstDataScience/hn_submissions.py)
 
 A more in-depth example of this module can be found [here](https://github.com/thenets/study-ansible/blob/main/how-to-create-a-module/library/get_news.py).
 
-> This module requires `requests`.
+> **NOTE:** This module requires `requests`.
 
 * * *
 
