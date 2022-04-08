@@ -7,8 +7,10 @@
   tasks:
     - name: "Run addition module"
       sum_module:
-        number_one: 3
-        number_two: 5
+        numbers:
+          - 3
+          - 5
+          - 9
       register: sum_results
     - debug:
         var: sum_results
@@ -27,18 +29,17 @@
     - debug:
         var: dice_results
 
-    - name: "Roll damage with 2d8"
+    - name: "Roll damage with 4d8!"
       dice_module:
         dice_side_number: 8
-        number_of_rolls: 2
+        number_of_rolls: 4
       register: damage_results
     - debug:
         var: damage_results
 
     - name: "Get the damage point total"
       sum_module:
-        number_one: "{{ damage_results.custom_roll_result[0] }}"
-        number_two: "{{ damage_results.custom_roll_result[1] }}"
+        numbers: "{{ damage_results.custom_roll_result }}"
       register: damage_sum
     - debug:
         var: damage_sum
