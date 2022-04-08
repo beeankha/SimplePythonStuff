@@ -26,3 +26,10 @@
       register: sum_results
     - debug:
         var: sum_results
+
+    - name: "Scrape the Hacker News API"
+      hn_top_stories:
+        number_of_entries: 20
+      register: top_stories
+    - debug:
+        var: top_stories
