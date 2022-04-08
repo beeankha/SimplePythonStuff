@@ -6,7 +6,7 @@ This repo exists so I can practice writing modules for Ansible.
 
 #### `sum_module.py`
 
-Adds two numbers together.  The defaults are `0` and `1`.
+Adds a list of numbers together.
 
 
 #### `dice_module.py`

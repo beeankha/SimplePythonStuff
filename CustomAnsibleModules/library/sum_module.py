@@ -21,27 +21,20 @@ author: "Bianca Henderson (@bizonka)"
 version_added: "2.9"
 short_description: A way to add two numbers together.
 description:
-    - Practicing writing a module.
+    - A module that sums.
 options:
-    number_one:
+    numbers:
       description:
-        - The first integer that's given.
-      required: False
-      type: str
-      default: "0"
-    number_two:
-      description:
-        - The second integer that's given.
-      required: False
-      type: str
-      default: "1"
+        - A list of integers to add.
+      required: True
+      type: list
+      default: None
 '''
 
 EXAMPLES = '''
 - name: "Add two numbers"
   sum_module:
-    number_one: 3
-    number_two: 5
+    numbers: [3, 5, 9]
   register: sum_results
   # the above outputs the module register into a variable, then you can
   # print out that info via debug (below)
@@ -54,17 +47,15 @@ from ansible.module_utils.basic import AnsibleModule
 def main():
 
     argument_spec = dict(
-        number_one=dict(required=False, default='0', type='str'),
-        number_two=dict(required=False, default='1', type='str'),
+        numbers=dict(required=True, default=None, type='list'),
     )
-
     module = AnsibleModule(argument_spec=argument_spec, supports_check_mode=True)
 
-    number_one = module.params.get('number_one')
-    number_two = module.params.get('number_two')
+    numbers = module.params.get('numbers')
+    sum_of_numbers = sum(numbers)
 
     try:
-        json_output = {'sum': (int(number_one) + int(number_two))}
+        json_output = {'sum': int(sum_of_numbers)}
     except ValueError:
         module.fail_json(msg="You didn't pass in sum-able integers!")
 
