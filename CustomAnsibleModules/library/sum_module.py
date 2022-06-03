@@ -17,7 +17,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: sum_module
-author: "Bianca Henderson (@bizonka)"
+author: "Bianca Henderson (@beeankha)"
 version_added: "2.9"
 short_description: A way to add two numbers together.
 description:
@@ -32,12 +32,11 @@ options:
 '''
 
 EXAMPLES = '''
-- name: "Add two numbers"
+- name: "Add three numbers"
   sum_module:
     numbers: [3, 5, 9]
   register: sum_results
-  # the above outputs the module register into a variable, then you can
-  # print out that info via debug (below)
+
 - debug:
     var: sum_results
 '''
@@ -57,7 +56,7 @@ def main():
     try:
         json_output = {'sum': int(sum_of_numbers)}
     except ValueError:
-        module.fail_json(msg="You didn't pass in sum-able integers!")
+        module.fail_json(msg='You didn't pass in sum-able integers!')
 
     module.exit_json(**json_output)
 

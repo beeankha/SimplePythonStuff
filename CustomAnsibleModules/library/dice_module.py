@@ -21,8 +21,7 @@ author: "Bianca Henderson (@beeankha)"
 version_added: "2.9"
 short_description: The silliest way to roll some dice!
 description:
-    - A way to roll digital dice via Ansible playbook. Currently you can only
-    roll one at a time.
+    - A way to roll digital dice via Ansible playbook.
 options:
     dice_side_number:
       description:
@@ -44,8 +43,7 @@ EXAMPLES = '''
     dice_side_number: 12
     number_of_rolls: 5
   register: roll_result
-  # the above outputs the module register into a variable, then you can
-  # print out that info via debug (below)
+
 - debug:
     var: roll_result
 '''
@@ -76,7 +74,7 @@ def main():
     try:
         json_output = {'custom_roll_result': custom_dice_roll(dice_side_number, number_of_rolls)}
     except ValueError:
-        module.fail_json(msg="This module parameter takes an integer!")
+        module.fail_json(msg='This module parameter takes an integer!')
 
     module.exit_json(**json_output)
 
