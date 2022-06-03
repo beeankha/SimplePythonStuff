@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # coding: utf-8 -*-
 #
-# (c) 2020, Bianca Henderson <bianca@redhat.com>
+# (c) 2020, Bianca Henderson <beeankha@gmail.com>
 # GNU General Public License v3.0+
 # (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
@@ -21,20 +21,27 @@ author: "Bianca Henderson (@beeankha)"
 version_added: "2.9"
 short_description: A way to add two numbers together.
 description:
-    - A module that sums.
+    - Practicing writing a module.
 options:
-    numbers:
+    number_one:
       description:
-        - A list of integers to add.
-      required: True
-      type: list
-      default: None
+        - The first integer that's given.
+      required: False
+      type: str
+      default: "0"
+    number_two:
+      description:
+        - The second integer that's given.
+      required: False
+      type: str
+      default: "1"
 '''
 
 EXAMPLES = '''
-- name: "Add three numbers"
+- name: "Add two numbers"
   sum_module:
-    numbers: [3, 5, 9]
+    number_one: 3
+    number_two: 5
   register: sum_results
 
 - debug:
@@ -46,15 +53,17 @@ from ansible.module_utils.basic import AnsibleModule
 def main():
 
     argument_spec = dict(
-        numbers=dict(required=True, default=None, type='list'),
+        number_one=dict(required=False, default='0', type='str'),
+        number_two=dict(required=False, default='1', type='str'),
     )
+
     module = AnsibleModule(argument_spec=argument_spec, supports_check_mode=True)
 
-    numbers = module.params.get('numbers')
-    sum_of_numbers = sum(numbers)
+    number_one = module.params.get('number_one')
+    number_two = module.params.get('number_two')
 
     try:
-        json_output = {'sum': int(sum_of_numbers)}
+        json_output = {'sum': (int(number_one) + int(number_two))}
     except ValueError:
         module.fail_json(msg="You didn't pass in sum-able integers!")
 
