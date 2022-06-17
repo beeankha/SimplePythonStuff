@@ -18,4 +18,4 @@ Tells you a few jokes.
 Test your OOP vocab/know-how.
 
 **Simple D20 (Continuous)**
-A script that rolls a D20 and gives a message when result is a 1 or 20 (didn't use a tutorial!).
+A script that rolls a D20 and gives a message when result is a 1 or 20.
