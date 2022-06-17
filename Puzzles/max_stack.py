@@ -1,4 +1,5 @@
-# Design a stack that supports `push`, `pop`, `top`, and retrieving the maximum element in constant time.
+# Design a stack that supports `push`, `pop`, `top`, and retrieving the maximum
+# element in constant time.
 # - `push(x)` - Push element `x` onto stack
 # - `pop()` - Removes the element on top of the stack
 # - `top()` - Get the top element (sometimes referred to as "peek")
@@ -29,7 +30,7 @@ def top():
 def get_max():
     return max[-1]
 
-push(3)    
+push(3)
 push(6)
 push(4)
 pop()

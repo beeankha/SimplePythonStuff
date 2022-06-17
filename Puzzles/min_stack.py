@@ -1,4 +1,5 @@
-# Design a stack that supports `push`, `pop`, `top`, and retrieving the minimum element in constant time.
+# Design a stack that supports `push`, `pop`, `top`, and retrieving the minimum
+# element in constant time.
 # - `push(x)` - Push element `x` onto stack
 # - `pop()` - Removes the element on top of the stack
 # - `top()` - Get the top element (sometimes referred to as "peek")
@@ -28,7 +29,7 @@ def top():
 def get_min():
     return min[-1]
 
-push(3)    
+push(3)
 push(6)
 push(4)
 push(8)
@@ -50,7 +51,7 @@ print(get_min())
 #     if compare <= min_value[0]:
 #         min_value.pop(0)
 #         min_value.append(compare)
-        
+
     # for n in new_list:
     #     min_value.append(n)
     #     x = min_value[0]

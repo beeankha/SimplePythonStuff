@@ -7,10 +7,10 @@
 #     if n < 2:
 #         return n
 #     return fib(n-1) + fib(n-2)
-# 
+#
 # >>> [fib(n) for n in range(16)]
 # [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610]
-# 
+#
 # >>> fib.cache_info()
 # CacheInfo(hits=28, misses=16, maxsize=None, currsize=16)
 
@@ -45,7 +45,7 @@ def update_wrapper(wrapper, wrapped, assigned=WRAPPER_ASSIGNMENTS, updated=WRAPP
     'updated' is a tuple naming the attributes of the wrapper that are updated with
     the corresponding attribute from the wrapped function (defaults to functools.WRAPPER_UPDATES).
     """
-    
+
     for attr in assigned:
         try:
             value = getattr(wrapped, attr)
@@ -60,7 +60,7 @@ def update_wrapper(wrapper, wrapped, assigned=WRAPPER_ASSIGNMENTS, updated=WRAPP
     wrapper.__wrapped__ = wrapped
     # Return the wrapper so this can be used as a decorator via partial()
     return wrapper
-    
+
 def wraps(wrapped, assigned=WRAPPER_ASSIGNMENTS, updated=WRAPPER_UPDATES):
     """
     Decorator factory to apply update_wrapper() to a wrapper function.
@@ -79,14 +79,14 @@ class _HashedSeq(list):
     This is important because the lru_cache() will hash the key multiple times on a
     cache miss.
     """
-    
-    
+
+
     __slots__ = 'hashvalue'
-    
+
     def __init__(self, tup, hash=hash):
         self[:] = tup
         self.hashvalue = hash(tup)
-    
+
     def __hash__(self):
         return self.hashvalue
 
@@ -99,8 +99,8 @@ def _make_key(args, kwds, typed, kwd_mark = (object(),), fasttypes = {int, str},
     value, then that argument is returned without a wrapper. This saves space and improves lookup speed.
     """
     # All of the code below relies on kwds preserving the order input by the user.
-    # Formerly, we sorted() the kwds before looping. The new way is *much* faster; 
-    # however, it means that f(x=1, y=2) will now be treated as a distinct call from 
+    # Formerly, we sorted() the kwds before looping. The new way is *much* faster;
+    # however, it means that f(x=1, y=2) will now be treated as a distinct call from
     # f(y=2, x=1) which will be cached separately.
     key = args
     if kwds:

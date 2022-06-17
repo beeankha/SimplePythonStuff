@@ -1,6 +1,7 @@
-# List comprehension info
+# List comprehension info:
 # https://www.w3schools.com/python/python_lists_comprehension.asp
 # https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
+# https://calmcode.io/comprehensions/introduction.html
 
 def fizz_buzz(n):
     numbers = [x for x in range(1, n)]  # list comprehension!!

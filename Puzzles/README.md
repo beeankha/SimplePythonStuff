@@ -1,4 +1,4 @@
-# Misc. Interview Questions and Puzzles
+# Misc. Puzzles
 
 ## Binary Tree Traversal
 
@@ -72,15 +72,19 @@ Implement an LRU cache with the use of Redis!
 **Things to Note:**
 
 Python comes with the LRU cache decorator!
+
+```
 @lru_cache(maxsize=None)
 def fib(n):
     if n < 2:
         return n
     return fib(n-1) + fib(n-2)
+```
 
-Note: setting the `maxsize` to None will allow the cache to grow indefinitely!
+> **Note:** setting the `maxsize` to `None` will allow the cache to grow indefinitely!
 
 AN LRU cache in Python is implemented using:
+
 - `HashSeq`, which is essentially a hash table that maps the function and its parameter to the return value
 - Doubly Linked list, which allows `O(1)` insertion and deletion from the front and back ends of the queue/list.
 

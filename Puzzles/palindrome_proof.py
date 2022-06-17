@@ -11,10 +11,10 @@ def convert(string):
     list = []
     list[:0]=new_string.lower()
     list.sort()
-    return list    
+    return list
 
 # def compare(a, b):
-#     return (a > b) - (a < b) 
+#     return (a > b) - (a < b)
 
 def palindrome_check(list):
     print(f'Your original text is: "{list}"')

@@ -1,10 +1,11 @@
-# Given an array and an index number, flip all elements that are from index 0 to the specified index number
+# Given an array and an index number, flip all elements that are from index 0
+# to the specified index number
 # Example:
 #
 # Input:
 # array = [1, 2, 3, 4, 5, 6]
 # flip_index = 2
-# 
+#
 # Output:
 # [3, 2, 1, 4, 5, 6]
 
@@ -25,7 +26,7 @@ def pancake_flip(list, index):
             insert_index += 1
             index_counter -= 1
         print(list)
-        
+
 to_flip = [1, 2, 3, 4, 5, 6, 7]
 flip_where = 3
 
