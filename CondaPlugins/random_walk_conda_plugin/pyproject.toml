@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61.0", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "random-walk"
+version = "1.0"
+description = "My random walk subcommand plugin"
+requires-python = ">=3.7"
+dependencies = ["conda", "matplotlib"]
+
+[tools.setuptools]
+py_modules=["random_walk"]
+
+[project.entry-points.conda]
+random-walk = "random_walk"
