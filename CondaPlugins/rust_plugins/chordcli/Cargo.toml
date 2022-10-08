@@ -1,0 +1,12 @@
+[package]
+name = "chord_cli"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "chord_cli"
+crate-type = ["cdylib"]
+
+[dependencies]
+clap = { version = "4.0.1", features = ["derive"] }
+pyo3 = { version = "0.17.1", features = ["extension-module"] }

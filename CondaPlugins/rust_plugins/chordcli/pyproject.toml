@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61.0", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chord-cli"
+version = "1.0"
+description = "A subcommand that displays guitar chords"
+requires-python = ">=3.7"
+dependencies = ["conda", "maturin"]
+
+[tools.setuptools]
+py_modules=["chord-cli"]
+
+[project.entry-points.conda]
+chord-cli = "chord_cli_rust"
