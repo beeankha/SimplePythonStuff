@@ -19,8 +19,7 @@ In the Python portion of the plugin (_i.e._, `CondaPlugins/c_plugins/temp_conver
 
 ### References
 
-**Calling C Functions from Python**
-https://www.digitalocean.com/community/tutorials/calling-c-functions-from-python
+[**Calling C Functions from Python**](https://www.digitalocean.com/community/tutorials/calling-c-functions-from-python)
 
 
 ## Python Plugins
@@ -49,11 +48,8 @@ $ maturin develop
 
 ### References
 
-**Maturin**
-https://github.com/PyO3/maturin
+[**Maturin**](https://github.com/PyO3/maturin)
 
-**PyO3 User Guide**
-https://pyo3.rs/v0.14.2/index.html
+[**PyO3 User Guide**](https://pyo3.rs/v0.14.2/index.html)
 
-**Calling Rust from Python Using PyO3**
-https://saidvandeklundert.net/learn/2021-11-18-calling-rust-from-python-using-pyo3/
+[**Calling Rust from Python Using PyO3**](https://saidvandeklundert.net/learn/2021-11-18-calling-rust-from-python-using-pyo3/)
