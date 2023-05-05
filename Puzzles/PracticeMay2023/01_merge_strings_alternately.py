@@ -33,10 +33,16 @@ class Solution:
         word = "".join(map(str, merged_list))
         return word
 
+
 class BetterSolution:
-    # a better solution than the above
+    # A way more efficient solution than the above 🤯
     def mergeAlternately(self, word1, word2):
         return ''.join(a + b for a, b in zip_longest(word1, word2, fillvalue=''))
 
 print(BetterSolution.mergeAlternately(BetterSolution, "abc", "pqr"))
-    
+
+# Runtime: 32 ms, faster than 63.64% of Python3 online submissions for Merge Strings Alternately.
+# Memory Usage: 14.3 MB, less than 42.42% of Python3 online submissions for Merge Strings Alternately.
+
+# Read about zip_longest here:
+# https://docs.python.org/3/library/itertools.html#itertools.zip_longest
