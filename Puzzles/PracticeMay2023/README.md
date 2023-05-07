@@ -49,8 +49,8 @@ merged: a p b q c   d
 
 ### Constraints:
 
-`1 <= word1.length`, `word2.length <= 100`
-`word1` and `word2` consist of lowercase English letters.
+* `1 <= word1.length`, `word2.length <= 100`
+* `word1` and `word2` consist of lowercase English letters.
 
 ### Acceptance Rate:
 `82.8%`
@@ -92,3 +92,87 @@ Output: ""
 
 ### Acceptance Rate
 `56.5%`
+
+
+* * *
+
+
+## 3. Kids With the Greatest Number of Candies
+
+### Status: ✅
+
+There are `n` kids with candies. You are given an integer array of candies, where each `candies[i]` represents the number of candies the `i`th kid has, and an integer `extraCandies`, denoting the number of extra candies that you have.
+
+_Return a boolean array result of length `n`, where `result[i]` is true if, after giving the ith kid all the `extraCandies`, they will have the greatest number of candies among all the kids, or false otherwise._
+
+> Note that multiple kids can have the greatest number of candies.
+
+### Example 1:
+```
+Input: candies = [2,3,5,1,3], extraCandies = 3
+Output: [true,true,true,false,true]
+```
+Explanation: If you give all `extraCandies` to:
+- Kid 1, they will have 2 + 3 = 5 candies, which is the greatest among the kids.
+- Kid 2, they will have 3 + 3 = 6 candies, which is the greatest among the kids.
+- Kid 3, they will have 5 + 3 = 8 candies, which is the greatest among the kids.
+- Kid 4, they will have 1 + 3 = 4 candies, which is not the greatest among the kids.
+- Kid 5, they will have 3 + 3 = 6 candies, which is the greatest among the kids.
+
+### Example 2:
+```
+Input: candies = [4,2,1,1,2], extraCandies = 1
+Output: [true,false,false,false,false]
+```
+Explanation: There is only 1 extra candy.
+
+Kid 1 will always have the greatest number of candies, even if a different kid is given the extra candy.
+
+### Example 3:
+```
+Input: candies = [12,1,12], extraCandies = 10
+Output: [true,false,true]
+```
+
+### Constraints:
+* `n == candies.length`
+* `2 <= n <= 100`
+* `1 <= candies[i] <= 100`
+* `1 <= extraCandies <= 50`
+
+### Acceptance Rate
+`88.0%`
+
+
+* * *
+
+
+## 4. Can Place Flowers
+
+### Status: ✅
+
+You have a long flowerbed in which some of the plots are planted, and some are not. However, flowers cannot be planted in adjacent plots.
+
+Given an integer array `flowerbed` containing `0`'s and `1`'s, where `0` means empty and `1` means not empty, and an integer `n`, return true if `n` new flowers can be planted in the flowerbed without violating the no-adjacent-flowers rule and false otherwise. 
+
+### Example 1:
+```
+Input: flowerbed = [1,0,0,0,1], n = 1
+Output: true
+```
+
+### Example 2:
+```
+Input: flowerbed = [1,0,0,0,1], n = 2
+Output: false
+```
+
+### Constraints:
+
+* `1 <= flowerbed.length <= 2 * 104`
+* `flowerbed[i]` is `0` or `1`.
+* There are no two adjacent flowers in `flowerbed`.
+* `0 <= n <= flowerbed.length`
+
+### Acceptance Rate
+`32.7%`
