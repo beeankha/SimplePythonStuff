@@ -207,3 +207,131 @@ Output: "leotcede"
 
 ### Acceptance Rate
 `50.3%`
+
+
+* * *
+
+
+## 6. Reverse Words in a String
+
+### Status: ✅
+
+Given an input string `s`, reverse the order of the words.
+
+A word is defined as a sequence of non-space characters. The words in `s` will be separated by at least one space.
+
+Return a string of the words in reverse order concatenated by a single space.
+
+Note that `s` may contain leading or trailing spaces or multiple spaces between two words. The returned string should only have a single space separating the words. Do not include any extra spaces.
+
+### Example 1:
+```
+Input: s = "the sky is blue"
+Output: "blue is sky the"
+```
+
+### Example 2:
+```
+Input: s = "  hello world  "
+Output: "world hello"
+```
+**Explanation:** Your reversed string should not contain leading or trailing spaces.
+
+### Example 3:
+```
+Input: s = "a good   example"
+Output: "example good a"
+```
+**Explanation:** You need to reduce multiple spaces between two words to a single space in the reversed string.
+
+### Constraints:
+
+* `1 <= s.length <= 104`
+* `s` contains English letters (upper-case and lower-case), digits, and spaces `' '`.
+* There is at least one word in `s`.
+
+**Follow-up:** If the string data type is mutable in your language, can you solve it in-place with `O(1)` extra space?
+
+### Acceptance Rate
+`33.3%`
+
+
+* * *
+
+
+## 7. Product of Array Except Self
+
+### Status: ❌
+
+Given an input string `s`, reverse the order of the words.
+
+A word is defined as a sequence of non-space characters. The words in `s` will be separated by at least one space.
+
+Return a string of the words in reverse order concatenated by a single space.
+
+Note that `s` may contain leading or trailing spaces or multiple spaces between two words. The returned string should only have a single space separating the words. Do not include any extra spaces.
+
+### Example 1:
+```
+Input: s = "the sky is blue"
+Output: "blue is sky the"
+```
+
+### Example 2:
+```
+Input: s = "  hello world  "
+Output: "world hello"
+```
+**Explanation:** Your reversed string should not contain leading or trailing spaces.
+
+### Example 3:
+```
+Input: s = "a good   example"
+Output: "example good a"
+```
+**Explanation:** You need to reduce multiple spaces between two words to a single space in the reversed string.
+
+### Constraints:
+
+* `1 <= s.length <= 104`
+* `s` contains English letters (upper-case and lower-case), digits, and spaces `' '`.
+* There is at least one word in `s`.
+
+**Follow-up:** If the string data type is mutable in your language, can you solve it in-place with `O(1)` extra space?
+
+### Acceptance Rate
+`33.3%`
+
+
+* * *
+
+
+## 8. Move Zeroes
+
+### Status: ✅
+
+Given an integer array `nums`, move all `0`'s to the end of it while maintaining the relative order of the non-zero elements.
+
+Note that you must do this in-place without making a copy of the array.
+
+### Example 1:
+```
+Input: nums = [0,1,0,3,12]
+Output: [1,3,12,0,0]
+```
+
+### Example 2:
+```
+Input: nums = [0]
+Output: [0]
+```
+
+### Constraints:
+
+* `1 <= nums.length <= 104`
+* `-231 <= nums[i] <= 231 - 1`
+
+**Follow-up:** Could you minimize the total number of operations done?
+
+### Acceptance Rate
+`61.4%`
