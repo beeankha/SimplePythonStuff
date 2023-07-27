@@ -4,4 +4,3 @@ class Solution:
         for a in gain:
             starting.append(starting[-1] + a)
         return max(starting)
-
